@@ -49,13 +49,15 @@ The desktop OSes may just be merged.
 
 A short (high-level) TODO list for me to implement; scratch each one out as I go...
 
-* [ ] Android
-* [ ] iOS
+* [x] bazel build //platforms:desktop
+* [x] bazel build //libs:logic
+* [ ] Basic running animation
+* [x] Basic shooting animation (inherited)
+* [ ] Boids (candidate for shared lib)
 * [ ] Linux
 * [ ] MacOS
 * [ ] Windows
 * [ ] WASM
-* [ ] Boids (candidate for shared lib)
+* [ ] Android
+* [ ] iOS
 * [ ] Cloudflare-workers (single threaded only for now <https://blog.cloudflare.com/wrangler-v2-beta/>)
-* [ ] Basic running animation
-* [x] Basic shooting animation (inherited)
