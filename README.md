@@ -33,9 +33,9 @@ I was orginally looking at `targets` as the name of the parent directory for the
 Under `platforms` we'll obviously have build targets [and directories] for:
 
 * Android
-* iOs
+* iOS
 * Linux
-* MacOs
+* MacOS
 * Windows
 * WASM
 
@@ -52,7 +52,7 @@ A short (high-level) TODO list for me to implement; scratch each one out as I go
 * [ ] Android
 * [ ] iOS
 * [ ] Linux
-* [ ] Mac
+* [ ] MacOS
 * [ ] Windows
 * [ ] WASM
 * [ ] Boids (candidate for shared lib)
