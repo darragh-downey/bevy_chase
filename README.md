@@ -23,7 +23,8 @@ On top of that, there are behaviors that are not specific to this 'game' which c
 These should all live in a `libs` directory and should be shared as a "library" by Bazel to the other aspects of the monorepo...
 
 **I hate the term AI these days outside of gaming... It's machine learning... Call me when your AI passes the Turing test proper*
-*Rant over*
+
+*Rant over...*
 
 ### Platforms
 
