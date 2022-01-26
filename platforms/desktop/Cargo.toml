@@ -1,10 +1,24 @@
 [package]
 name = "bevy_chase"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name = "bevy-chase"
+path = "src/main.rs"
+# The set of targets to generate BUILD rules for.
+# hopefully android and iOS will be included in future
+targets = [
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+    "x86_64-unknown-linux-gnu",
+    ]
 
 [dependencies]
 bevy = "0.6.0"
 rand = "0.8.4"
+
+# be prepared to delete...
+#player = { path = "../player" }
+#enemy = { path = "../enemy" }

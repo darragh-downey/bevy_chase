@@ -1,0 +1,96 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+rust_library(
+    name = "bevy_asset",
+    srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
+    crate_features = [
+        "default",
+        "filesystem_watcher",
+        "notify",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2021",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=bevy_asset",
+        "manual",
+    ],
+    version = "0.6.0",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__anyhow__1_0_53//:anyhow",
+        "@cargo__bevy_app__0_6_0//:bevy_app",
+        "@cargo__bevy_diagnostic__0_6_0//:bevy_diagnostic",
+        "@cargo__bevy_ecs__0_6_0//:bevy_ecs",
+        "@cargo__bevy_log__0_6_0//:bevy_log",
+        "@cargo__bevy_reflect__0_6_0//:bevy_reflect",
+        "@cargo__bevy_tasks__0_6_0//:bevy_tasks",
+        "@cargo__bevy_utils__0_6_0//:bevy_utils",
+        "@cargo__crossbeam_channel__0_5_2//:crossbeam_channel",
+        "@cargo__downcast_rs__1_2_0//:downcast_rs",
+        "@cargo__notify__5_0_0_pre_11//:notify",
+        "@cargo__parking_lot__0_11_2//:parking_lot",
+        "@cargo__rand__0_8_4//:rand",
+        "@cargo__serde__1_0_136//:serde",
+        "@cargo__thiserror__1_0_30//:thiserror",
+    ] + selects.with_or({
+        # cfg(target_arch = "wasm32")
+        (
+            "@rules_rust//rust/platform:wasm32-unknown-unknown",
+            "@rules_rust//rust/platform:wasm32-wasi",
+        ): [
+            "@cargo__js_sys__0_3_56//:js_sys",
+            "@cargo__wasm_bindgen__0_2_79//:wasm_bindgen",
+            "@cargo__wasm_bindgen_futures__0_4_29//:wasm_bindgen_futures",
+            "@cargo__web_sys__0_3_56//:web_sys",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        # cfg(target_os = "android")
+        (
+            "@rules_rust//rust/platform:aarch64-linux-android",
+            "@rules_rust//rust/platform:i686-linux-android",
+            "@rules_rust//rust/platform:x86_64-linux-android",
+        ): [
+            "@cargo__ndk_glue__0_5_0//:ndk_glue",
+        ],
+        "//conditions:default": [],
+    }),
+)

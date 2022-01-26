@@ -1,0 +1,66 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # Apache-2.0 from expression "Apache-2.0"
+])
+
+# Generated Targets
+
+rust_library(
+    name = "oboe",
+    srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "java-interface",
+        "jni",
+        "ndk",
+        "ndk-glue",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2018",
+    proc_macro_deps = [
+        "@cargo__num_derive__0_3_3//:num_derive",
+    ],
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=oboe",
+        "manual",
+    ],
+    version = "0.4.5",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__jni__0_19_0//:jni",
+        "@cargo__ndk__0_6_0//:ndk",
+        "@cargo__ndk_glue__0_6_0//:ndk_glue",
+        "@cargo__num_traits__0_2_14//:num_traits",
+        "@cargo__oboe_sys__0_4_5//:oboe_sys",
+    ],
+)

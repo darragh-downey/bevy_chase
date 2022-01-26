@@ -1,0 +1,115 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "unencumbered",  # CC0-1.0 from expression "CC0-1.0 OR Artistic-2.0"
+])
+
+# Generated Targets
+
+# Unsupported target "async_monitor" with type "example" omitted
+
+# Unsupported target "monitor_raw" with type "example" omitted
+
+rust_library(
+    name = "notify",
+    srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
+    crate_features = [
+        "default",
+        "fsevent-sys",
+        "macos_fsevent",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2018",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=notify",
+        "manual",
+    ],
+    version = "5.0.0-pre.11",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__bitflags__1_3_2//:bitflags",
+        "@cargo__crossbeam_channel__0_5_2//:crossbeam_channel",
+        "@cargo__filetime__0_2_15//:filetime",
+        "@cargo__libc__0_2_114//:libc",
+        "@cargo__walkdir__2_3_2//:walkdir",
+    ] + selects.with_or({
+        # cfg(any(target_os = "freebsd", target_os = "openbsd", target_os = "netbsd", target_os = "dragonflybsd"))
+        (
+            "@rules_rust//rust/platform:i686-unknown-freebsd",
+            "@rules_rust//rust/platform:x86_64-unknown-freebsd",
+        ): [
+            "@cargo__kqueue__1_0_4//:kqueue",
+            "@cargo__mio__0_7_14//:mio",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        # cfg(target_os = "linux")
+        (
+            "@rules_rust//rust/platform:i686-unknown-linux-gnu",
+            "@rules_rust//rust/platform:x86_64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:aarch64-unknown-linux-gnu",
+            "@rules_rust//rust/platform:arm-unknown-linux-gnueabi",
+            "@rules_rust//rust/platform:powerpc-unknown-linux-gnu",
+            "@rules_rust//rust/platform:s390x-unknown-linux-gnu",
+        ): [
+            "@cargo__inotify__0_9_6//:inotify",
+            "@cargo__mio__0_7_14//:mio",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        # cfg(target_os = "macos")
+        (
+            "@rules_rust//rust/platform:i686-apple-darwin",
+            "@rules_rust//rust/platform:x86_64-apple-darwin",
+            "@rules_rust//rust/platform:aarch64-apple-darwin",
+        ): [
+            "@cargo__fsevent_sys__4_1_0//:fsevent_sys",
+        ],
+        "//conditions:default": [],
+    }) + selects.with_or({
+        # cfg(windows)
+        (
+            "@rules_rust//rust/platform:i686-pc-windows-msvc",
+            "@rules_rust//rust/platform:x86_64-pc-windows-msvc",
+        ): [
+            "@cargo__winapi__0_3_9//:winapi",
+        ],
+        "//conditions:default": [],
+    }),
+)
+
+# Unsupported target "race-with-remove-dir" with type "test" omitted
+
+# Unsupported target "serialise-events" with type "test" omitted

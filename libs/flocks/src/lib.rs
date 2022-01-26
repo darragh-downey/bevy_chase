@@ -4,3 +4,9 @@
 /// other than the current ellipse default
 /// 
 /// also have a 'notion' of enemy swarms
+/// 
+
+
+fn simple() -> String {
+    "simple call"
+}

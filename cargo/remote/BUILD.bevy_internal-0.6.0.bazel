@@ -1,0 +1,109 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+rust_library(
+    name = "bevy_internal",
+    srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
+    crate_features = [
+        "bevy_audio",
+        "bevy_core_pipeline",
+        "bevy_gilrs",
+        "bevy_gltf",
+        "bevy_pbr",
+        "bevy_render",
+        "bevy_sprite",
+        "bevy_text",
+        "bevy_ui",
+        "bevy_winit",
+        "filesystem_watcher",
+        "hdr",
+        "png",
+        "vorbis",
+        "webgl",
+        "x11",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2021",
+    proc_macro_deps = [
+        "@cargo__bevy_derive__0_6_0//:bevy_derive",
+    ],
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=bevy_internal",
+        "manual",
+    ],
+    version = "0.6.0",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__bevy_app__0_6_0//:bevy_app",
+        "@cargo__bevy_asset__0_6_0//:bevy_asset",
+        "@cargo__bevy_audio__0_6_0//:bevy_audio",
+        "@cargo__bevy_core__0_6_0//:bevy_core",
+        "@cargo__bevy_core_pipeline__0_6_0//:bevy_core_pipeline",
+        "@cargo__bevy_diagnostic__0_6_0//:bevy_diagnostic",
+        "@cargo__bevy_ecs__0_6_0//:bevy_ecs",
+        "@cargo__bevy_gilrs__0_6_0//:bevy_gilrs",
+        "@cargo__bevy_gltf__0_6_0//:bevy_gltf",
+        "@cargo__bevy_input__0_6_0//:bevy_input",
+        "@cargo__bevy_log__0_6_0//:bevy_log",
+        "@cargo__bevy_math__0_6_0//:bevy_math",
+        "@cargo__bevy_pbr__0_6_0//:bevy_pbr",
+        "@cargo__bevy_reflect__0_6_0//:bevy_reflect",
+        "@cargo__bevy_render__0_6_0//:bevy_render",
+        "@cargo__bevy_scene__0_6_0//:bevy_scene",
+        "@cargo__bevy_sprite__0_6_0//:bevy_sprite",
+        "@cargo__bevy_tasks__0_6_0//:bevy_tasks",
+        "@cargo__bevy_text__0_6_0//:bevy_text",
+        "@cargo__bevy_transform__0_6_0//:bevy_transform",
+        "@cargo__bevy_ui__0_6_0//:bevy_ui",
+        "@cargo__bevy_utils__0_6_0//:bevy_utils",
+        "@cargo__bevy_window__0_6_0//:bevy_window",
+        "@cargo__bevy_winit__0_6_0//:bevy_winit",
+    ] + selects.with_or({
+        # cfg(target_os = "android")
+        (
+            "@rules_rust//rust/platform:aarch64-linux-android",
+            "@rules_rust//rust/platform:i686-linux-android",
+            "@rules_rust//rust/platform:x86_64-linux-android",
+        ): [
+            "@cargo__ndk_glue__0_5_0//:ndk_glue",
+        ],
+        "//conditions:default": [],
+    }),
+)

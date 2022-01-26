@@ -1,0 +1,68 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+rust_library(
+    name = "bevy_reflect",
+    srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "bevy",
+        "glam",
+        "smallvec",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2021",
+    proc_macro_deps = [
+        "@cargo__bevy_reflect_derive__0_6_0//:bevy_reflect_derive",
+    ],
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=bevy_reflect",
+        "manual",
+    ],
+    version = "0.6.0",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__bevy_utils__0_6_0//:bevy_utils",
+        "@cargo__downcast_rs__1_2_0//:downcast_rs",
+        "@cargo__erased_serde__0_3_18//:erased_serde",
+        "@cargo__glam__0_20_2//:glam",
+        "@cargo__parking_lot__0_11_2//:parking_lot",
+        "@cargo__serde__1_0_136//:serde",
+        "@cargo__smallvec__1_8_0//:smallvec",
+        "@cargo__thiserror__1_0_30//:thiserror",
+    ],
+)

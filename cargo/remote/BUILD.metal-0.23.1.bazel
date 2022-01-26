@@ -1,0 +1,91 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+# Unsupported target "argument-buffer" with type "example" omitted
+
+# Unsupported target "bind" with type "example" omitted
+
+# Unsupported target "caps" with type "example" omitted
+
+# Unsupported target "circle" with type "example" omitted
+
+# Unsupported target "compute" with type "example" omitted
+
+# Unsupported target "compute-argument-buffer" with type "example" omitted
+
+# Unsupported target "embedded-lib" with type "example" omitted
+
+# Unsupported target "events" with type "example" omitted
+
+# Unsupported target "fence" with type "example" omitted
+
+# Unsupported target "headless-render" with type "example" omitted
+
+# Unsupported target "library" with type "example" omitted
+
+# Unsupported target "mps" with type "example" omitted
+
+# Unsupported target "reflection" with type "example" omitted
+
+# Unsupported target "shader-dylib" with type "example" omitted
+
+# Unsupported target "window" with type "example" omitted
+
+rust_library(
+    name = "metal",
+    srcs = glob(["**/*.rs"]),
+    crate_features = [
+        "default",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2018",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=metal",
+        "manual",
+    ],
+    version = "0.23.1",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__bitflags__1_3_2//:bitflags",
+        "@cargo__block__0_1_6//:block",
+        "@cargo__core_graphics_types__0_1_1//:core_graphics_types",
+        "@cargo__foreign_types__0_3_2//:foreign_types",
+        "@cargo__log__0_4_14//:log",
+        "@cargo__objc__0_2_7//:objc",
+    ],
+)

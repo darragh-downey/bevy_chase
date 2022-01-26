@@ -1,0 +1,273 @@
+"""
+@generated
+cargo-raze crate build file.
+
+DO NOT EDIT! Replaced on runs of cargo-raze
+"""
+
+# buildifier: disable=load
+load("@bazel_skylib//lib:selects.bzl", "selects")
+
+# buildifier: disable=load
+load(
+    "@rules_rust//rust:defs.bzl",
+    "rust_binary",
+    "rust_library",
+    "rust_proc_macro",
+    "rust_test",
+)
+
+package(default_visibility = [
+    # Public for visibility by "@raze__crate__version//" targets.
+    #
+    # Prefer access through "//cargo", which limits external
+    # visibility to explicit Cargo.toml dependencies.
+    "//visibility:public",
+])
+
+licenses([
+    "notice",  # MIT from expression "MIT OR Apache-2.0"
+])
+
+# Generated Targets
+
+# Unsupported target "3d_scene" with type "example" omitted
+
+# Unsupported target "alien_cake_addict" with type "example" omitted
+
+# Unsupported target "android" with type "example" omitted
+
+# Unsupported target "animate_shader" with type "example" omitted
+
+# Unsupported target "asset_loading" with type "example" omitted
+
+# Unsupported target "assets_wasm" with type "example" omitted
+
+# Unsupported target "async_compute" with type "example" omitted
+
+# Unsupported target "audio" with type "example" omitted
+
+# Unsupported target "bevymark" with type "example" omitted
+
+# Unsupported target "breakout" with type "example" omitted
+
+# Unsupported target "button" with type "example" omitted
+
+# Unsupported target "char_input_events" with type "example" omitted
+
+# Unsupported target "clear_color" with type "example" omitted
+
+# Unsupported target "component_change_detection" with type "example" omitted
+
+# Unsupported target "compute_shader_game_of_life" with type "example" omitted
+
+# Unsupported target "contributors" with type "example" omitted
+
+# Unsupported target "custom_asset" with type "example" omitted
+
+# Unsupported target "custom_asset_io" with type "example" omitted
+
+# Unsupported target "custom_diagnostic" with type "example" omitted
+
+# Unsupported target "custom_loop" with type "example" omitted
+
+# Unsupported target "drag_and_drop" with type "example" omitted
+
+# Unsupported target "ecs_guide" with type "example" omitted
+
+# Unsupported target "empty" with type "example" omitted
+
+# Unsupported target "empty_defaults" with type "example" omitted
+
+# Unsupported target "event" with type "example" omitted
+
+# Unsupported target "fixed_timestep" with type "example" omitted
+
+# Unsupported target "font_atlas_debug" with type "example" omitted
+
+# Unsupported target "gamepad_input" with type "example" omitted
+
+# Unsupported target "gamepad_input_events" with type "example" omitted
+
+# Unsupported target "generic_reflection" with type "example" omitted
+
+# Unsupported target "headless" with type "example" omitted
+
+# Unsupported target "headless_defaults" with type "example" omitted
+
+# Unsupported target "headless_wasm" with type "example" omitted
+
+# Unsupported target "hello_wasm" with type "example" omitted
+
+# Unsupported target "hello_world" with type "example" omitted
+
+# Unsupported target "hierarchy" with type "example" omitted
+
+# Unsupported target "hot_asset_reloading" with type "example" omitted
+
+# Unsupported target "iter_combinations" with type "example" omitted
+
+# Unsupported target "keyboard_input" with type "example" omitted
+
+# Unsupported target "keyboard_input_events" with type "example" omitted
+
+# Unsupported target "keyboard_modifiers" with type "example" omitted
+
+# Unsupported target "lighting" with type "example" omitted
+
+# Unsupported target "load_gltf" with type "example" omitted
+
+# Unsupported target "log_diagnostics" with type "example" omitted
+
+# Unsupported target "logs" with type "example" omitted
+
+# Unsupported target "many_cubes" with type "example" omitted
+
+# Unsupported target "many_sprites" with type "example" omitted
+
+# Unsupported target "mesh2d" with type "example" omitted
+
+# Unsupported target "mesh2d_manual" with type "example" omitted
+
+# Unsupported target "mouse_input" with type "example" omitted
+
+# Unsupported target "mouse_input_events" with type "example" omitted
+
+# Unsupported target "msaa" with type "example" omitted
+
+# Unsupported target "multiple_windows" with type "example" omitted
+
+# Unsupported target "orthographic" with type "example" omitted
+
+# Unsupported target "parallel_query" with type "example" omitted
+
+# Unsupported target "parenting" with type "example" omitted
+
+# Unsupported target "pbr" with type "example" omitted
+
+# Unsupported target "plugin" with type "example" omitted
+
+# Unsupported target "plugin_group" with type "example" omitted
+
+# Unsupported target "rect" with type "example" omitted
+
+# Unsupported target "reflection" with type "example" omitted
+
+# Unsupported target "reflection_types" with type "example" omitted
+
+# Unsupported target "removal_detection" with type "example" omitted
+
+# Unsupported target "return_after_run" with type "example" omitted
+
+# Unsupported target "scale_factor_override" with type "example" omitted
+
+# Unsupported target "scene" with type "example" omitted
+
+# Unsupported target "shader_defs" with type "example" omitted
+
+# Unsupported target "shader_instancing" with type "example" omitted
+
+# Unsupported target "shader_material" with type "example" omitted
+
+# Unsupported target "shader_material_glsl" with type "example" omitted
+
+# Unsupported target "shadow_biases" with type "example" omitted
+
+# Unsupported target "shadow_caster_receiver" with type "example" omitted
+
+# Unsupported target "spherical_area_lights" with type "example" omitted
+
+# Unsupported target "sprite" with type "example" omitted
+
+# Unsupported target "sprite_flipping" with type "example" omitted
+
+# Unsupported target "sprite_sheet" with type "example" omitted
+
+# Unsupported target "startup_system" with type "example" omitted
+
+# Unsupported target "state" with type "example" omitted
+
+# Unsupported target "system_chaining" with type "example" omitted
+
+# Unsupported target "system_param" with type "example" omitted
+
+# Unsupported target "system_sets" with type "example" omitted
+
+# Unsupported target "text" with type "example" omitted
+
+# Unsupported target "text2d" with type "example" omitted
+
+# Unsupported target "text_debug" with type "example" omitted
+
+# Unsupported target "texture" with type "example" omitted
+
+# Unsupported target "texture_atlas" with type "example" omitted
+
+# Unsupported target "thread_pool_resources" with type "example" omitted
+
+# Unsupported target "timers" with type "example" omitted
+
+# Unsupported target "touch_input" with type "example" omitted
+
+# Unsupported target "touch_input_events" with type "example" omitted
+
+# Unsupported target "trait_reflection" with type "example" omitted
+
+# Unsupported target "transparent_window" with type "example" omitted
+
+# Unsupported target "ui" with type "example" omitted
+
+# Unsupported target "update_gltf_scene" with type "example" omitted
+
+# Unsupported target "window_settings" with type "example" omitted
+
+# Unsupported target "winit_wasm" with type "example" omitted
+
+# Unsupported target "wireframe" with type "example" omitted
+
+# Unsupported target "without_winit" with type "example" omitted
+
+rust_library(
+    name = "bevy",
+    srcs = glob(["**/*.rs"]),
+    aliases = {
+    },
+    crate_features = [
+        "bevy_audio",
+        "bevy_gilrs",
+        "bevy_winit",
+        "default",
+        "filesystem_watcher",
+        "hdr",
+        "png",
+        "render",
+        "vorbis",
+        "x11",
+    ],
+    crate_root = "src/lib.rs",
+    data = [],
+    edition = "2021",
+    rustc_flags = [
+        "--cap-lints=allow",
+    ],
+    tags = [
+        "cargo-raze",
+        "crate-name=bevy",
+        "manual",
+    ],
+    version = "0.6.0",
+    # buildifier: leave-alone
+    deps = [
+        "@cargo__bevy_internal__0_6_0//:bevy_internal",
+    ] + selects.with_or({
+        # cfg(target_arch = "wasm32")
+        (
+            "@rules_rust//rust/platform:wasm32-unknown-unknown",
+            "@rules_rust//rust/platform:wasm32-wasi",
+        ): [
+        ],
+        "//conditions:default": [],
+    }),
+)
+
+# Unsupported target "how_to_test_systems" with type "test" omitted
